@@ -1,19 +1,8 @@
 <template>
-  <div id="app">
-    <HelloWorld msg="Bem-vindo ao Central de Vagas"/>
-  </div>
+    <div id="app">
+        <router-view/>
+    </div>
 </template>
-
-<script>
-import HelloWorld from './components/HelloWorld.vue'
-
-export default {
-  name: 'app',
-  components: {
-    HelloWorld
-  }
-}
-</script>
 
 <style>
 #app {
