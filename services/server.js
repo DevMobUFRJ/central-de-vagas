@@ -7,7 +7,7 @@ const FirebaseAuth = require('firebaseauth')
 
 const app = express()
 
-const firebase = new FirebaseAuth('APIKEY')
+const firebase = new FirebaseAuth(process.env.FIREBASE_APIKEY)
 
 app.use(express.static('.'));
 app.use(bodyParser.urlencoded({ extended: true }));
