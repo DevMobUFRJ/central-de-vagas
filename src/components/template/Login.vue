@@ -67,23 +67,31 @@
         <div class="field">
           <label class="label">E-mail</label>
           <div class="control">
-            <input class="input" type="email" />
+            <input class="input" type="email" v-model="email" />
           </div>
         </div>
         <div class="field">
           <label class="label">Senha</label>
           <div class="control">
-            <input class="input" type="password" />
+            <input class="input" type="password" v-model="password" />
           </div>
         </div>
         <div class="field">
           <label class="label">Confirmar Senha</label>
           <div class="control">
-            <input class="input" type="password" />
+            <input class="input" type="password"  v-model="confirmationPassword"/>
           </div>
         </div>
         <div class="field">
-          <button class="button is-pulled-right">Próximo</button>
+          <button class="button is-pulled-right" v-on:click="createUser">Próximo</button>
+        </div>
+        <div>
+          <p class="error-cadastro-preenchimento-label" v-if="errors.length">
+            <b>Por favor, preencha os seguintes campos:</b>
+            <ul>
+              <li v-for="error in errors" v-bind:key="error.id">{{ error }}</li>
+            </ul>
+          </p>
         </div>
       </div>
     </div>
@@ -93,16 +101,41 @@
 <script>
 export default {
   name: "Login",
-  props: {
-    email: String,
-    password: String,
-    confirmationPassword: String,
-    auth: Promise
-  },
-  data: function() {
+  data: function () {
     return {
+      email: null,
+      password: null,
+      confirmationPassword: null,
+      errors: [],
+      auth: Promise,
       activeTab: 1
-    };
+    }
+  },
+  methods: {
+    createUser: function(event) {
+      // verify if user has inputed the fields
+      // TODO: add aditional validation like size, etc.
+      this.errors = [];
+
+      if (!this.email)
+        this.errors.push("E-mail está faltando!")
+
+      if (!this.password)
+        this.errors.push("Senha está faltando!")
+
+      if (!this.confirmationPassword)
+        this.errors.push("Confirmação da senha está faltando!")
+
+      if (this.confirmationPassword !== this.password)
+        this.errors.push("As senhas não estão iguais!")
+
+      if (!this.errors.length)
+        return true;
+
+      // cria usuário
+      console.log("usuário criado!")
+
+    }
   }
 };
 </script>
@@ -131,9 +164,14 @@ export default {
 input {
   border: none;
   border-bottom: 1px solid #757575;
-  background-color: none
+  background-color: none;
 }
 input:focus {
   outline: none;
 }
+
+.error-cadastro-preenchimento-label {
+  color: red;
+}
+
 </style>
