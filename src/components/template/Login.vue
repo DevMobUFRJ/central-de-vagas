@@ -47,20 +47,20 @@
         <div class="field">
           <label class="label">E-mail</label>
           <div class="control">
-            <input class="input" type="email" />
+            <input class="input" type="email" v-model="email" />
           </div>
         </div>
         <div class="field">
           <label class="label">Senha</label>
           <div class="control">
-            <input class="input" type="password" />
+            <input class="input" type="password" v-model="password" />
           </div>
         </div>
         <div class="field">
           <button class="button is-text">Esqueci a Senha</button>
         </div>
         <div class="field">
-          <button class="button is-pulled-right is-warning">Entrar</button>
+          <button class="button is-pulled-right is-warning" @click="login">Entrar</button>
         </div>
       </div>
       <div class="tab-content" v-if="activeTab === 2">
@@ -99,6 +99,9 @@
 </template>
 
 <script>
+
+import firebase from 'firebase';
+
 export default {
   name: "Login",
   data: function () {
@@ -133,8 +136,26 @@ export default {
         return true;
 
       // cria usuário
-      console.log("usuário criado!")
-
+      firebase.auth().createUserWithEmailAndPassword(this.email, this.password).then(
+          (user) => {
+            this.router.replace('')
+          },
+          (error) => {
+            this.errors.push(error);
+          }
+      );
+    },
+    login: function(event) {
+      // loga usuário
+      firebase.auth().signInWithEmailAndPassword(this.email, this.password).then(
+          (user) => {
+            console.log('user logged');
+            this.router.replace('')
+          },
+          (error) => {
+            console.log(error);            
+          }
+      );
     }
   }
 };
