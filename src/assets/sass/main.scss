@@ -1,5 +1,16 @@
-@import "~bulma/bulma";
+// @import "~bulma/bulma";
 
-body {
-  background-color: #4b0022;
+@import "~bulma/sass/utilities/_all";
+@import "~bulma/sass/base/_all";
+@import "~bulma/sass/elements/_all";
+@import "~bulma/sass/form/_all";
+@import "~bulma/sass/components/_all";
+@import "~bulma/sass/grid/_all";
+@import "~bulma/sass/layout/_all";
+
+@import "./colors.scss";
+
+
+html, body {
+  background-color: $primary-color
 }
