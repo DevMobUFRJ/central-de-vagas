@@ -39,43 +39,59 @@
           <div class="field">
             <label class="label">E-mail</label>
             <div class="control">
-              <input class="input" type="email" />
+              <input class="input" type="email" v-model="email" />
             </div>
           </div>
           <div class="field">
             <label class="label">Senha</label>
             <div class="control">
-              <input class="input" type="password" />
+              <input class="input" type="password" v-model="password" />
             </div>
           </div>
           <div class="field">
             <button class="button is-text">Esqueci a Senha</button>
           </div>
           <div class="field">
-            <button class="button is-pulled-right is-warning">Entrar</button>
+            <button class="button is-pulled-right is-warning" @click="login">Entrar</button>
+          </div>
+          <div>
+            <p class="error-cadastro-preenchimento-label" v-if="errors.length">
+              <b>Os seguintes erros foram encontrados:</b>
+              <ul>
+                <li v-for="error in errors" v-bind:key="error.id">{{ error }}</li>
+              </ul>
+            </p>
           </div>
         </div>
         <div v-if="currentTab === 'signup'">
           <div class="field">
             <label class="label">E-mail</label>
             <div class="control">
-              <input class="input" type="email" />
+              <input class="input" type="email" v-model="email" />
             </div>
           </div>
           <div class="field">
             <label class="label">Senha</label>
             <div class="control">
-              <input class="input" type="password" />
+              <input class="input" type="password" v-model="password"/>
             </div>
           </div>
           <div class="field">
             <label class="label">Confirmar Senha</label>
             <div class="control">
-              <input class="input" type="password" />
+              <input class="input" type="password" v-model="confirmationPassword" />
             </div>
           </div>
           <div class="field">
-            <button class="button is-pulled-right">Próximo</button>
+            <button class="button is-pulled-right" @click="createUser">Próximo</button>
+          </div>
+          <div>
+            <p class="error-cadastro-preenchimento-label" v-if="errors.length">
+              <b>Os seguintes erros foram encontrados:</b>
+              <ul>
+                <li v-for="error in errors" v-bind:key="error.id">{{ error }}</li>
+              </ul>
+            </p>
           </div>
         </div>
       </div>
@@ -84,7 +100,9 @@
 </template>
 
 <script>
+
 import TabsWithActiveLine from "../organisms/Tab";
+import firebase from 'firebase';
 
 const Tabs = [
   {
@@ -96,27 +114,101 @@ const Tabs = [
     value: "signup"
   }
 ];
+
 export default {
   components: {
     TabsWithActiveLine
   },
   name: "Login",
-  props: {
-    email: { type: String, default: "" },
-    password: { type: String, default: "" },
-    confirmationPassword: { type: String, default: "" },
-    auth: Promise
-  },
   data: () => ({
     tabs: Tabs,
-    currentTab: "login"
+    currentTab: "login",
+    email: null,
+    password: null,
+    confirmationPassword: null,
+    errors: [],
+    auth: Promise,
+    activeTab: 1
   }),
   methods: {
     handleClick(newTab) {
       this.currentTab = newTab;
+      // clean the errors list
+      this.errors = [];
+    },
+    createUser: function(event) {
+      // verify if user has inputed the fields
+      // TODO: add aditional validation like size, etc.
+      this.verifyInputErrors(event,null);
+
+      // cria usuário
+      firebase.auth().createUserWithEmailAndPassword(this.email, this.password).then(
+          user => {
+            console.log('usuário' + user.email + ' criado');
+            this.router.replace('/')
+          },
+          error => {
+            this.verifyInputErrors(event, error);
+            console.log(error);
+          }
+      );
+    },
+    login: function(event) {
+      
+      this.verifyInputErrors(event,null);
+      // loga usuário
+      firebase.auth().signInWithEmailAndPassword(this.email, this.password).then(
+          user => {
+            console.log('usuário logado');
+            this.router.replace('/Feed');
+          },
+          error => {
+            this.verifyInputErrors(event, error);
+            console.log(error);
+          }
+      );
+    },
+    verifyInputErrors: function(event, error) {
+      
+      console.log(event);
+
+      this.errors = [];
+
+      if (!this.email)
+        this.errors.push("E-mail está faltando!");
+
+      if (!this.password)
+        this.errors.push("Senha está faltando!");
+
+      if (!this.confirmationPassword && this.currentTab.localeCompare("signup") === 0)
+        this.errors.push("Confirmação da senha está faltando!");
+
+      if (this.confirmationPassword !== this.password  && this.currentTab.localeCompare("signup") === 0)
+        this.errors.push("As senhas não estão iguais!");
+
+      // case a error was passed
+      if (error !== null) {
+        // verify errors returned by firebase api
+        if (error.message.localeCompare("The email address is badly formatted.") === 0)
+          this.errors.push("E-mail mal formatado!");
+        if (error.message.localeCompare("The password is invalid or the user does not have a password.") === 0
+        || error.message.localeCompare("There is no user record corresponding to this identifier. The user may have been deleted.") === 0)
+          this.errors.push("Usuário ou senha inválida!");
+        if (error.message.localeCompare("The email address is already in use by another account.") === 0)
+          this.errors.push("E-mail já cadastrado!");
+        if (error.message.localeCompare("Password should be at least 6 characters") === 0)
+          this.errors.push("A senha deveria ter pelo menos 6 caracteres!");
+      }
+
+      if (!this.errors.length)
+        return true;
+      else
+        return false;
+
     }
   }
 };
+
 </script>
 
 <style scoped lang="scss">
@@ -194,4 +286,9 @@ input {
   margin-top: 30px;
   font-size: 20px;
 }
+
+.error-cadastro-preenchimento-label {
+   color: red;
+ }
+
 </style>
