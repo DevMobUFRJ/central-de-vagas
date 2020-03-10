@@ -1,6 +1,6 @@
 import Vue from "vue";
 import VueRouter from "vue-router";
-import Login from "../components/pages/Login";
+import Home from "../components/pages/Home";
 import Feed from "../components/pages/Feed";
 
 Vue.use(VueRouter);
@@ -8,8 +8,8 @@ Vue.use(VueRouter);
 const routes = [
   {
     path: "/",
-    name: "login",
-    component: Login
+    name: "home",
+    component: Home
   },
   {
     path: "/Feed",
