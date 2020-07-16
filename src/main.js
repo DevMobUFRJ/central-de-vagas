@@ -1,17 +1,13 @@
 import Vue from "vue";
 import App from "./App.vue";
-import "./registerServiceWorker";
-import router from "./router";
-import store from "./store";
 
-import firebase from 'firebase';
+import router from "./router/";
+import firebase from "firebase";
+import "./registerServiceWorker";
 
 require("./assets/sass/main.scss");
 
-
-Vue.config.productionTip = false
-
-let app = '';
+Vue.config.productionTip = false;
 
 var firebaseConfig = {
   apiKey: process.env.VUE_APP_FIREBASE_APIKEY,
@@ -23,13 +19,10 @@ var firebaseConfig = {
   appId: process.env.VUE_APP_APP_ID
 };
 
+console.log(firebaseConfig);
 firebase.initializeApp(firebaseConfig);
 
-firebase.auth().onAuthStateChanged (() => {
-  if (!app) {
-    app = new Vue({
-      router,
-      render: h => h(App)
-    }).$mount('#app');
-  }
-});
+new Vue({
+  router,
+  render: h => h(App)
+}).$mount("#app");

@@ -12,14 +12,14 @@ const routes = [
     component: Login
   },
   {
-    path: "/Feed",
+    path: "/feed",
     name: "feed",
     component: Feed
   }
 ];
 
 const router = new VueRouter({
-  routes
+  routes, mode: 'history'
 });
 
 export default router;

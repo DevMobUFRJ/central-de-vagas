@@ -58,7 +58,7 @@
             <p class="error-cadastro-preenchimento-label" v-if="errors.length">
               <b>Os seguintes erros foram encontrados:</b>
               <ul>
-                <li v-for="error in errors" v-bind:key="error.id">{{ error }}</li>
+                <li v-for="error in errors" :key="error.id">{{ error }}</li>
               </ul>
             </p>
           </div>
@@ -159,7 +159,7 @@ export default {
       // loga usuário
       firebase.auth().signInWithEmailAndPassword(this.email, this.password).then(
           user => {
-            console.log('usuário logado');
+            console.log('usuário logado ' + user.additionalUserInfo.username);
             this.router.replace('/Feed');
           },
           error => {
