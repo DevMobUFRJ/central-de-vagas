@@ -1,0 +1,74 @@
+.grid {
+  display: grid;
+  gap: 20px;
+  grid-template-columns: repeat(4, 1fr);
+  font-family: var(--body-font);
+}
+.grid::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  background-color: rgb(65, 0, 29);
+  height: 16px;
+  width: 100%;
+}
+.leftPanel {
+  grid-column: 1/3;
+  height: 100vh;
+  background-color: var(--main-color);
+  color: white;
+}
+
+.rightPanel {
+  grid-column: 3/5;
+}
+
+.title {
+  font-family: var(--title-font);
+  font-size: 5em;
+  padding: 0 60px;
+  text-indent: 10px hanging;
+}
+
+.leftPanel > p {
+  font-size: 18px;
+  padding: 0 60px;
+}
+
+.rightPanel > nav > ul {
+  display: grid;
+  grid-template-areas: 'left right';
+  grid-template-columns: repeat(2, 1fr);
+  gap: 20px;
+  list-style: none;
+  padding: 0;
+}
+.left {
+  grid-area: left;
+}
+.right {
+  grid-area: right;
+  margin-right: 20px;
+}
+.rightPanel > nav > ul > a > li {
+  font-size: 36px;
+  text-transform: uppercase;
+  padding: 20px 0px 10px 0px;
+  font-weight: 600;
+}
+.rightPanel > nav > ul > a {
+  text-decoration: none;
+  color: rgb(173, 49, 78);
+  margin-right: 20px;
+}
+.active {
+  border-bottom: 2px solid var(--main-color);
+}
+.active > li {
+  color: var(--main-color);
+}
+.content {
+  grid-column: span 2;
+  margin-right: 20px;
+  background-color: lightpink;
+}
