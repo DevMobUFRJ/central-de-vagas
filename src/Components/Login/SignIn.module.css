@@ -1,0 +1,32 @@
+.form {
+  margin-top: 90px;
+  display: grid;
+}
+
+.form > button {
+  justify-self: end;
+}
+
+.form > a {
+  font-size: 18px;
+  text-decoration: none;
+  color: black;
+  margin-bottom: 30px;
+  position: relative;
+}
+
+.form > a::after {
+  position: absolute;
+  content: ' ';
+  height: 2px;
+  background: var(--accent-color);
+  width: 165px;
+  left: 0;
+  margin: 0 auto;
+  top: 22px;
+}
+
+.form > a:hover,
+.form > a:focus {
+  color: var(--accent-color);
+}
