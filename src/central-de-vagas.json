@@ -1,0 +1,12 @@
+{
+  "type": "service_account",
+  "project_id": "central-de-vagas-36df3",
+  "private_key_id": "0bf7fd3a19ee081116878c6f2b1ee694a57e8def",
+  "private_key": "-----BEGIN PRIVATE KEY-----\nMIIEvgIBADANBgkqhkiG9w0BAQEFAASCBKgwggSkAgEAAoIBAQCo64tJ7DCYYj9S\nqCJAcl4dBVv3QmuhLbRGEcWwPDkCgVyBzqIPQWUYPmHW3rZaGO9Ipiae3SCAIbmQ\nA4uTcYxyC/F+g1CgbATyNQStHZMga4iAWjXiSW3SJfOpLFqyvoJlrtliI6UMT8Wf\nLuzuH+ZjqQcOk84NGhIS0Dck+U+Q1p51/AQH+0yXY694+1qcFnD23dGnMTuu7vxC\nZbFLtPEeDkszClCWK6DdAcMkYJnh45qXa8Axy1AflyESfvvSIOWWE2G+mZ9GBhY9\nsQY0Zbr4C0z3zxmdGmbBl6sDQHwvI1mmH1ZlddMY41dZNREdqswkT/apMO+bzN+b\n3Cyp7MK7AgMBAAECggEADsE4UvYvDnhyeIlYKJH014say9/A3/zKhN5Tir/P6QCc\nsHf4nuWC65mzWR3uBrOr3wgoUnMVPivz9fjhTbk639FcQEU/GywkSHXKGUb+jXPn\nIfL/RutMDPGktW+64mcSo8ggk9pyNb+YDv390xT1PlpK1AKkGm/fCUansnKWeRup\najx8c7wvEZfewawKPTQwbKtdr4iUTwls0cJC7i5IBBqVdA/Fljdgdbf7O1pPuMPV\nUIEKcKAYYNszskyIfs/kmySVG0+aYWrKekDw9HWuzf7FW7vwOQDVimp80agG0TGG\n8PcLZUnAJVJ1vtxaxzd/O1YGNwXA6A88F4vJVwkOuQKBgQDtJgCQ0q71RgXhsnVz\nFCUuYF6ylYmNy7rqu9YGUGlOmLsY4kKnIoUu5JgO+81E1rwkLqETJo1H4OpvKKgi\nVXG/+zqfpPzXag0XZ4cnhJw5sy194LrlTFFa8VHNextIy62Te7JKA0WGe+GCnC8D\nPOVCc6Pvuj73NRcDqdAg6sxOuQKBgQC2WRZRgHG2pgvtl4gIWDq1Aq8LnseYFM9S\nEiD/6FjXQDpf1YV4Nyr80mdKg8e36oz+8myWYsIF911naOaq1B3sEibC3XReGG0u\n0bewsk7CSLWAF4kD3S5yaZ3i5ExD0DQvo2qvN38wPDSycjPXYigl3CxToE5upkBT\n++QSPSzDEwKBgGNgRGZr0yM3J6nPhcYmj/oiKiy92zmPQRGyitp0gdyMxgKEdhfh\nsFvZMRs+S2NodMjYvWjwA842IydXqzVQBu3DUmqp0cZXS4seOBXITUskmZChRtBl\nrcXlUDlCOEnGCEPAVxMK0eysJvD7j/vUXeH94ZnIuzAOkElZtLzGh70JAoGBAIeo\n7Z7C9VaSYCtp4c17fmmuTnZRsWJmkPsY+64HuRii8wrbOsn+GSAwlKHuOoaMnEsM\nJlcXsAtqRfYqJ/oNhxlbQ7UTtoBOoeQEKCnv7gJCv61FVS0nv2dlRg5IFKka28hZ\nRoSGwDwtfnMH3aOupfnMvLmWeON/EjqpGrurAYM7AoGBAJq1K64sIYeHtMsSDwqb\n7dUeHQSdB91TPViugxHYRjuDY4bgDk8uCK+qQGqNV6YYVQDPgzmJsQxADvs0kT61\nsW73Taw1Pb/Fg0ZS34Kpp/H18gncs4gH/VXaSXcqjxFV3qtqxLgU1GFjIUsqLpZW\nHA9dZWhWgUyqHJeSbq++n/MZ\n-----END PRIVATE KEY-----\n",
+  "client_email": "firebase-adminsdk-x84ne@central-de-vagas-36df3.iam.gserviceaccount.com",
+  "client_id": "102480830252592184835",
+  "auth_uri": "https://accounts.google.com/o/oauth2/auth",
+  "token_uri": "https://oauth2.googleapis.com/token",
+  "auth_provider_x509_cert_url": "https://www.googleapis.com/oauth2/v1/certs",
+  "client_x509_cert_url": "https://www.googleapis.com/robot/v1/metadata/x509/firebase-adminsdk-x84ne%40central-de-vagas-36df3.iam.gserviceaccount.com"
+}
