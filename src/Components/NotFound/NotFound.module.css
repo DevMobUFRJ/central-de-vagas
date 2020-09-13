@@ -1,0 +1,36 @@
+.pag {
+  width: 80%;
+  margin: 0 auto;
+  display: grid;
+  justify-content: center;
+}
+.pag::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  background-color: rgb(65, 0, 29);
+  height: 16px;
+  width: 100%;
+  left: 0;
+}
+.title {
+  font-family: var(--title-font);
+  text-align: center;
+  color: var(--main-color);
+  font-size: 60px;
+}
+.text {
+  text-align: center;
+  font-family: var(--body-font);
+  font-size: 20px;
+}
+
+.imagem {
+  max-width: 100%;
+  margin: 0 auto;
+  width: 350px;
+}
+
+.btn {
+  margin: 40px auto;
+}

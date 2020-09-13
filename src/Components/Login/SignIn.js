@@ -16,7 +16,7 @@ const SignIn = () => {
 
   return (
     <>
-      <form className={styles.form}>
+      <form className={styles.form} onSubmit={handleSubmit}>
         <Input
           id="email"
           label="E-mail"

@@ -34,7 +34,7 @@ const Login = () => {
         </nav>
         <div className={styles.content}>
           <Routes>
-            <Route path="signin" element={<SignIn />} />
+            <Route path="signin/*" element={<SignIn />} />
             <Route path="signup" element={<Signup />} />
           </Routes>
         </div>
