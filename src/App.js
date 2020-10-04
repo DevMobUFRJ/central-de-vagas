@@ -16,9 +16,9 @@ function App() {
             <Redirect to="/login/signin/" />
           </Route>
           <Route path="/login/*" children={<Login />} />
-          <Route path="/signin/" children={<SignIn />} />
+          <Route path="/signin" children={<SignIn />} />
           <Route path="/signup" children={<Signup />} />
-          <Route exact path="/recsenha" children={<LostPassword />} />
+          <Route path="recsenha" children={<LostPassword />} />
           <Route path="*" children={<NotFound />} />
         </Switch>
       </BrowserRouter>

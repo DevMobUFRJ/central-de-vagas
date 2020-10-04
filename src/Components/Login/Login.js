@@ -4,6 +4,7 @@ import styles from './Login.module.css';
 import SignIn from './SignIn';
 import Signup from './Signup';
 import { NavLink, Route, Switch } from 'react-router-dom';
+import LostPassword from './LostPassword';
 
 const Login = () => {
   return (
@@ -36,6 +37,7 @@ const Login = () => {
           <Switch>
             <Route exact path="/login/signin" children={<SignIn />} />
             <Route exact path="/login/signup" children={<Signup />} />
+            <Route exact path="/login/recsenha" children={<LostPassword />} />
           </Switch>
         </div>
       </div>

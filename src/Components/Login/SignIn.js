@@ -31,13 +31,13 @@ const SignIn = () => {
           required="required"
           {...password}
         />
-        <NavLink to="/recsenha" element={<LostPassword />}>
+        <NavLink to="/login/recsenha" element={<LostPassword />}>
           Esqueci minha senha
         </NavLink>
         <Button>ENTRAR</Button>
       </form>
       <Switch>
-        <Route path="/recsenha" element={<LostPassword />} />
+        <Route exact path="/login/recsenha" element={<LostPassword />} />
       </Switch>
     </>
   );
