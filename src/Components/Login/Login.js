@@ -34,8 +34,8 @@ const Login = () => {
         </nav>
         <div className={styles.content}>
           <Switch>
-            <Route path="signin/*" children={<SignIn />} />
-            <Route path="signup" children={<Signup />} />
+            <Route exact path="/login/signin" children={<SignIn />} />
+            <Route exact path="/login/signup" children={<Signup />} />
           </Switch>
         </div>
       </div>
