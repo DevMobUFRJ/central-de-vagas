@@ -3,7 +3,7 @@ import useForm from '../../hooks/useForm';
 import Input from '../Form/Input';
 import styles from './SignIn.module.css';
 import Button from '../Form/Button';
-import { NavLink, Routes, Route } from 'react-router-dom';
+import { NavLink, Route, Switch } from 'react-router-dom';
 import LostPassword from './LostPassword';
 
 const SignIn = () => {
@@ -31,14 +31,14 @@ const SignIn = () => {
           required="required"
           {...password}
         />
-        <NavLink to="recsenha" element={<LostPassword />}>
+        <NavLink to="/recsenha" element={<LostPassword />}>
           Esqueci minha senha
         </NavLink>
         <Button>ENTRAR</Button>
       </form>
-      <Routes>
-        <Route path="recsenha" element={<LostPassword />} />
-      </Routes>
+      <Switch>
+        <Route path="/recsenha" element={<LostPassword />} />
+      </Switch>
     </>
   );
 };

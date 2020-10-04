@@ -10,7 +10,7 @@ const NotFound = () => {
       <p className={styles.text}>
         Desculpe, a página solicitada não pode ser encontrada
       </p>
-      <img src={logo} className={styles.imagem}></img>
+      <img src={logo} alt="Logo" className={styles.imagem}></img>
       <div className={styles.btn}>
         <Button>Início</Button>
       </div>

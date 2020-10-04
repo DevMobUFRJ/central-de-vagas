@@ -3,7 +3,7 @@ import './../../App.css';
 import styles from './Login.module.css';
 import SignIn from './SignIn';
 import Signup from './Signup';
-import { NavLink, Routes, Route } from 'react-router-dom';
+import { NavLink, Route, Switch } from 'react-router-dom';
 
 const Login = () => {
   return (
@@ -33,10 +33,10 @@ const Login = () => {
           </ul>
         </nav>
         <div className={styles.content}>
-          <Routes>
-            <Route path="signin/*" element={<SignIn />} />
-            <Route path="signup" element={<Signup />} />
-          </Routes>
+          <Switch>
+            <Route path="signin/*" children={<SignIn />} />
+            <Route path="signup" children={<Signup />} />
+          </Switch>
         </div>
       </div>
     </div>
