@@ -2,6 +2,7 @@ import React from 'react';
 import styles from './NotFound.module.css';
 import logo from './../../img/logo@512w.png';
 import Button from '../Form/Button';
+import { NavLink, Route, Switch } from 'react-router-dom';
 
 const NotFound = () => {
   return (
@@ -12,8 +13,13 @@ const NotFound = () => {
       </p>
       <img src={logo} alt="Logo" className={styles.imagem}></img>
       <div className={styles.btn}>
-        <Button>Início</Button>
+        <NavLink to="/">
+          <Button>Início</Button>
+        </NavLink>
       </div>
+      <Switch>
+        <Route path="/" />
+      </Switch>
     </div>
   );
 };
